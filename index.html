@@ -3,36 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Quiz</title>
+    <title>Multi-Step Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="quiz-container">
     <h1>What's Your Personality Type?</h1>
+    
+    <!-- Quiz Form -->
     <form id="quiz-form">
-        <!-- Question 1 -->
-        <div class="question">
+        
+        <!-- Step 1 -->
+        <div class="question step active" id="step-1">
             <h2>Question 1: What do you prefer?</h2>
             <label><input type="checkbox" name="q1" value="A"> Option A</label>
             <label><input type="checkbox" name="q1" value="B"> Option B</label>
             <label><input type="checkbox" name="q1" value="C"> Option C</label>
+            <button type="button" class="next-btn" data-next="step-2">Next</button>
         </div>
-        <!-- More Questions... -->
-        <div class="question">
+        
+        <!-- Step 2 -->
+        <div class="question step" id="step-2">
             <h2>Question 2: Pick your ideal activity</h2>
             <label><input type="checkbox" name="q2" value="A"> Option A</label>
             <label><input type="checkbox" name="q2" value="B"> Option B</label>
             <label><input type="checkbox" name="q2" value="C"> Option C</label>
+            <button type="button" class="prev-btn" data-prev="step-1">Previous</button>
+            <button type="button" class="next-btn" data-next="step-3">Next</button>
         </div>
 
-        <button type="submit">See Results</button>
+        <!-- Add more steps (questions) as needed -->
+
+        <!-- Step 3: Final Step (Submit) -->
+        <div class="question step" id="step-3">
+            <h2>Question 3: Choose your favorite color</h2>
+            <label><input type="checkbox" name="q3" value="A"> Option A</label>
+            <label><input type="checkbox" name="q3" value="B"> Option B</label>
+            <label><input type="checkbox" name="q3" value="C"> Option C</label>
+            <button type="button" class="prev-btn" data-prev="step-2">Previous</button>
+            <button type="submit">See Results</button>
+        </div>
+        
     </form>
-    
+
+    <!-- Result Page -->
     <div id="result" class="hidden">
         <h2>Your Result:</h2>
         <p id="result-text"></p>
+        <button id="restart-btn">Restart Quiz</button>
     </div>
+
 </div>
 
 <script src="script.js"></script>
